@@ -3,6 +3,7 @@
       <meta charset="utf-8">
       <title>Signup Page</title>
       <link rel="stylesheet" type="text/css" href="style.css">
+       <script src="script.js"></script>
    </head>
    <body>
       <div class="wrapper">
@@ -10,71 +11,77 @@
             <u>SignUp Page</u>
          </div>
 
-         <form action="" method="POST">
+         <form name="forms" onsubmit="return validate()" action="login.html">
            <div class="field">
-              <input type="text" name="fname" required>
+              <input type="text" name="fname" id="name" oninput="validate_name()"  onkeyup="last_name(this)" required>
               <label>Enter Name</label>
            </div>
+             <span id="textname"></span>
+             <br>
 
            <div class="field">
-              <input type="text" name="regid" required>
+              <input type="text" name="regid" id="regid" oninput="check_regId()" required>
               <label>Enter Reg_Id</label>
            </div>
+             <span id="reg_error_message"></span>
+             <br>
 
            <div class="field">
-              <input type="text" name="email" required>
+              <input type="text" name="email" id="email" oninput="validate_email()" required>
               <label>Enter Email Id</label>
            </div>
+             <span id="email_error_message"></span>
+             <br>
 
             <div class="field">
-               <input type="password" name="pass" required>
+               <input type="password" name="pass" id="passwords1" oninput="validate_password1()" required>
                <label>Enter Password</label>
             </div>
+              <span id="pass1_error_message"></span>
+              <br>
 
             <div class="field">
-               <input type="password" name="cpass" required>
+               <input type="password" name="cpass" id="passwords2" oninput="validate_password2()" required>
                <label>Confirm Password</label>
             </div>
+                <span id="pass2_error_message"></span>
+                <br>
 
             <div class="field">
-               <input type="number" name="mobile" required>
+               <input type="text" name="mobile" id="mobilenumber" oninput="validate_phone()" onkeyup="phone_check(this)" required>
                <label>Enter Mobile No.</label>
             </div>
+                <span id="mobile_error_message"></span>
             <br>
+
             <div class="radio_field">
               <p>Choose your Gender :</p>
                 <input type="radio" name="gender" value="Male">&nbsp;Male&nbsp;&nbsp;
                 <input type="radio" name="gender" value="Female">&nbsp;Female&nbsp;&nbsp;
                 <input type="radio" name="gender" value="Other">&nbsp;Other&nbsp;&nbsp;
             </div>
+                <span id="textradio"></span>
             <br>
 
             <div class="radio_field">
               <p>Choose your Country : &nbsp;
-              <select id ="select">
-                <option disabled="disabled" selected="selected">--Choose the option--</option>
-                <option>India</option>
-                <option>Australia</option>
-                <option>US</option>
+              <select id ="select" class="required">
+                <option value="NotValid" disabled="disabled" selected="selected">--Choose the option--</option>
+                <option value="India">India</option>
+                <option value="Australia">Australia</option>
+                <option value="US">US</option>
               </select>
               </p>
             </div>
+               <span id="textcountry"></span>
             <br>
 
             <div class="radio_field">
               <p>Enter Date of Birth :&nbsp;
-              <input type="date" name="dob" required>
+              <input type="date" name="dob" id="dob" value="" required>
               </p>
             </div>
-
-            <br>
-            <br>
-
-            <div class="content">
-               <div class="pass-link">
-                  <a href="#"><u>Forgot password?</u></a>
-               </div>
-            </div>
+            <br><br>
 
             <div class="field">
                <input type="submit" name="submit" value="Signup">
